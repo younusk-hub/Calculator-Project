@@ -8,13 +8,95 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 50px 0;
   background-color: aqua;
+  text-align: center;
 }
 
 .calculator-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  height: 65vh;
+  margin: 25px 10%;
+  background-color: beige;
+}
+.calculator-container__display-input {
+  padding: 20px;
+  align-self: flex-end;
+  font-size: 25px;
+}
+.calculator-container__answer {
+  padding: 20px;
+  align-self: flex-end;
+  font-size: 50px;
+}
+.calculator-container__user-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  width: 90%;
+  height: 90%;
+  margin: 20px;
+  grid-template-areas: "a b c d" "e f g h" "i j k l" "m n o p" "q q r s";
+}
+.calculator-container .clear {
+  grid-area: a;
+}
+.calculator-container .add\/minus {
+  grid-area: b;
+}
+.calculator-container .percentage {
+  grid-area: c;
+}
+.calculator-container .divide {
+  grid-area: d;
+}
+.calculator-container .seven {
+  grid-area: e;
+}
+.calculator-container .eight {
+  grid-area: f;
+}
+.calculator-container .nine {
+  grid-area: g;
+}
+.calculator-container .multiply {
+  grid-area: h;
+}
+.calculator-container .four {
+  grid-area: i;
+}
+.calculator-container .five {
+  grid-area: j;
+}
+.calculator-container .six {
+  grid-area: k;
+}
+.calculator-container .minus {
+  grid-area: l;
+}
+.calculator-container .one {
+  grid-area: m;
+}
+.calculator-container .two {
+  grid-area: n;
+}
+.calculator-container .three {
+  grid-area: o;
+}
+.calculator-container .plus {
+  grid-area: p;
+}
+.calculator-container .zero {
+  grid-area: q;
+}
+.calculator-container .decimal {
+  grid-area: r;
+}
+.calculator-container .equal {
+  grid-area: s;
 }/*# sourceMappingURL=styles.css.map */

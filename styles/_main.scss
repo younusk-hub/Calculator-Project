@@ -1,7 +1,66 @@
 .calculator-container {
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
-    margin:
+    height: 65vh;
+    margin: 25px 10%;
+    background-color:beige;
+
+    &__display-input {
+        padding: 20px;
+        align-self: flex-end;
+        font-size: 25px;
+    }
+
+    &__answer {
+        padding: 20px;
+        align-self: flex-end;
+        font-size: 50px;
+    }
+
+    &__user-input {  
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        width: 90%;
+        height: 90%;
+        margin: 20px;
+
+        
+        grid-template-areas:
+          "a b c d"
+          "e f g h"
+          "i j k l"
+          "m n o p"
+          "q q r s";
+      
+      
+    }
+      
+    .clear { grid-area: a;}
+    .add\/minus { grid-area: b; }
+    .percentage { grid-area: c; }
+    .divide { grid-area: d; }
+    .seven { grid-area: e; }
+    .eight { grid-area: f; }
+    .nine { grid-area: g; }
+    .multiply { grid-area: h; }
+    .four { grid-area: i; }
+    .five { grid-area: j; }
+    .six { grid-area: k; }
+    .minus { grid-area: l; }
+    .one { grid-area: m; }
+    .two { grid-area: n; }
+    .three { grid-area: o; }
+    .plus { grid-area: p; }
+    .zero { grid-area: q; }
+    .decimal { grid-area: r; }      
+    .equal { grid-area: s; }
+      
+
+
+
 }
