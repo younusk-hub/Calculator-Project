@@ -18,9 +18,7 @@ const printUserInput = (event) => {
         displayInput.innerText = num;
 
     } else if (event.target.value === "÷" || event.target.value === "X" || event.target.value === "-" || event.target.value === "+" ||  event.target.value === ".") {
-        if (expressionArr[expressionArr.length - 1] === "÷" || expressionArr[expressionArr.length - 1] === "X" || expressionArr[expressionArr.length - 1] === "-" || expressionArr[expressionArr.length - 1] === "+" || expressionArr[expressionArr.length - 1] === ".") {
-            expressionArr.pop();
-        } else if (expressionArr[0] === "÷" || expressionArr[0] === "X" || expressionArr[0] === "+" || expressionArr[0] === "." ) {
+        if (expressionArr[0] === "÷" || expressionArr[0] === "X" || expressionArr[0] === "+" || expressionArr[0] === "." ) {
             expressionArr.shift();
         };
         expressionArr.push(event.target.value);
@@ -56,13 +54,23 @@ const sortArr = (arr) => {
         if (parseFloat(i) || i === "." || parseFloat(i) === 0) {
             console.log(i);
             tempArr.push(i);
-        } else if (i === "÷" || i === "X" || i === "-" || i === "+") {
+        } else if (i === "-" && tempArr.length === 0) {
             console.log(i);
+            tempArr.push(i);
+        } else if (i === "÷" || i === "X" || i === "+" || i === "-") {
             
-            newArr.push(parseFloat(tempArr.join("")));
-           
-            newArr.push(i);
-            tempArr = [];
+            if (tempArr[0] === "-") {
+                console.log(i);
+                tempArr.shift();
+                newArr.push(parseFloat(tempArr.join("")) * -1);
+                newArr.push(i);
+                tempArr = []
+            } else {
+                console.log(i);
+                newArr.push(parseFloat(tempArr.join("")));
+                newArr.push(i);
+                tempArr = [];
+            }
         };
     });
     newArr.push(parseFloat(tempArr.join("")));
@@ -111,9 +119,13 @@ const calculateExpression = (arr) => {
             i--;
         }
     };
+
+
+
     return arr;
 };
 
 userInput.forEach(input => {
     input.addEventListener("click", printUserInput);
 });
+
