@@ -55,7 +55,7 @@ main {
   margin: 20px;
   justify-items: center;
   align-items: center;
-  grid-template-areas: "a b c d" "e f g h" "i j k l" "m n o p" "q q r s";
+  grid-template-areas: "a b c d" "e f g h" "i j k l" "m n o p" "q r t s";
 }
 .calculator-container__user-input__input {
   background-color: aqua;
@@ -121,10 +121,9 @@ main {
 .calculator-container .equal {
   grid-area: s;
 }
+.calculator-container .delete {
+  grid-area: t;
+}
 .calculator-container .zero {
   grid-area: q;
-  width: 140px;
-  border-radius: 50px;
-  text-align: left;
-  padding-left: 22px;
 }/*# sourceMappingURL=styles.css.map */

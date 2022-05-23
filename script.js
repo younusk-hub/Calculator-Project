@@ -7,6 +7,8 @@ const displayAnswer = document.querySelector(".calculator-container__answer");
 
 // empty array represents 0 input from user and letting javascript know we are asigning a variable to an array.
 let expressionArr = [];
+let percentageCounter = 0;
+let negativePositiveCounter = 0;
 
 const printUserInput = (event) => {
 
@@ -32,6 +34,16 @@ const printUserInput = (event) => {
         console.log(expressionArr); 
         displayInput.innerText = "CLEARED";
         displayAnswer.innerText = "ANSWER";
+    
+    } else if (event.target.value === "del") {
+        expressionArr.pop()
+        console.log(expressionArr);
+        let num = expressionArr.join("");
+        displayInput.innerText = num;
+        if (expressionArr.length === 0) {
+            displayInput.innerText = "CLEARED";
+            displayAnswer.innerText = "ANSWER";
+        }
 
     } else if (event.target.value === "=") {
         if (expressionArr[expressionArr.length - 1] === "÷" || expressionArr[expressionArr.length - 1] === "X" || expressionArr[expressionArr.length - 1] === "-" || expressionArr[expressionArr.length - 1] === "+" || expressionArr[expressionArr.length - 1] === ".") {
@@ -41,9 +53,29 @@ const printUserInput = (event) => {
         };
         expressionArr = sortArr(expressionArr);
         console.log(expressionArr);
-        console.log(calculateExpression(expressionArr));
-        displayAnswer.innerText = calculateExpression(expressionArr);
+        let answer = calculateExpression(expressionArr);
+        displayAnswer.innerText = answer;
+
+    } else if (event.target.value === "%") {
+        let answer = calculateExpression(expressionArr);
+        let answerInPercentage = answer * 100
+        console.log(answerInPercentage)
+        displayAnswer.innerText = answerInPercentage + "%";
+
+    } else if (event.target.value === "+/-") {
+        if (negativePositiveCounter % 2 === 0) {
+            answer = calculateExpression(expressionArr);
+            console.log(answer)
+            displayAnswer.innerText = answer[0] * -1;
+            negativePositiveCounter++
+        } else {
+            answer = calculateExpression(expressionArr);
+            console.log(answer)
+            displayAnswer.innerText = answer[0];
+            negativePositiveCounter++
+        }
     }
+
 };
 
 const sortArr = (arr) => {
@@ -128,4 +160,3 @@ const calculateExpression = (arr) => {
 userInput.forEach(input => {
     input.addEventListener("click", printUserInput);
 });
-
