@@ -7,8 +7,9 @@ const displayAnswer = document.querySelector(".calculator-container__answer");
 
 // empty array represents 0 input from user and letting javascript know we are asigning a variable to an array.
 let expressionArr = [];
+
 let percentageCounter = 0;
-let negativePositiveCounter = 0;
+
 
 const printUserInput = (event) => {
 
@@ -57,23 +58,23 @@ const printUserInput = (event) => {
         displayAnswer.innerText = answer;
 
     } else if (event.target.value === "%") {
-        let answer = calculateExpression(expressionArr);
-        let answerInPercentage = answer * 100
-        console.log(answerInPercentage)
-        displayAnswer.innerText = answerInPercentage + "%";
+        if (percentageCounter%2 === 0) {
+            expressionArr = [expressionArr[0] * 100];
+            console.log(expressionArr);
+            displayAnswer.innerText = expressionArr + "%";
+            percentageCounter++;
+        } else {
+            expressionArr = [expressionArr[0] / 100];
+            console.log(expressionArr);
+            displayAnswer.innerText = expressionArr;
+            percentageCounter++;
+        }
 
     } else if (event.target.value === "+/-") {
-        if (negativePositiveCounter % 2 === 0) {
-            answer = calculateExpression(expressionArr);
-            console.log(answer)
-            displayAnswer.innerText = answer[0] * -1;
-            negativePositiveCounter++
-        } else {
-            answer = calculateExpression(expressionArr);
-            console.log(answer)
-            displayAnswer.innerText = answer[0];
-            negativePositiveCounter++
-        }
+        expressionArr.push(expressionArr.pop() *-1)
+        let answerPositiveNegative = expressionArr
+        displayAnswer.innerText = answerPositiveNegative;
+        console.log(answerPositiveNegative)
     }
 
 };
@@ -151,9 +152,7 @@ const calculateExpression = (arr) => {
             i--;
         }
     };
-
-
-
+    
     return arr;
 };
 
