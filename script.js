@@ -111,7 +111,8 @@ const sortArr = (arr) => {
 };
 
 const calculateExpression = (arr) => {
-
+    // bidmas/bodmas
+    
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === "÷") {
             let tempAnswer = (arr[i - 1]/arr[i + 1]);
@@ -152,7 +153,7 @@ const calculateExpression = (arr) => {
             i--;
         }
     };
-    
+
     return arr;
 };
 
