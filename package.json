@@ -1,0 +1,24 @@
+{
+  "name": "calculator-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/younusk-hub/Calculator-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/younusk-hub/Calculator-Project/issues"
+  },
+  "homepage": "https://github.com/younusk-hub/Calculator-Project#readme",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}
