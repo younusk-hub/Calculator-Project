@@ -6,3 +6,4 @@ NOTE: some expressions may give wrong answers due to javascripts limitations for
 
 Here is a preview:
 
+![Screenshot 2022-06-18 at 20 55 54](https://user-images.githubusercontent.com/83434812/174455355-1e06e8d5-5a02-44f5-9e80-828bbe5f2b38.png)
